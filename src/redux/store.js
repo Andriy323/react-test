@@ -1,10 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit'
-// import contactReduce from './contact-reducer/contact-reducer'
-import contactReducer from './contactSlice'
- const store = configureStore({
-  reducer: {
-    contacts: contactReducer
-  },
-})
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-export default store
+import rootReducer from './contactSlice';
+export const store = configureStore({
+  reducer: {
+    contacts: rootReducer,
+  },
+});
+export const persistor = persistStore(store);

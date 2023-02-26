@@ -8,15 +8,13 @@ const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  // const addContacts = () => dispatch(addContact())
   const idName = nanoid();
   const idNumber = nanoid();
 
   const hendleSubmit = e => {
     e.preventDefault();
 
-    // onSubmit({ name, number });
-    dispatch(addContact({ name, number }))
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };
@@ -30,7 +28,9 @@ const ContactForm = ({ onSubmit }) => {
   return (
     <div className={css.formContainer}>
       <form onSubmit={hendleSubmit} className={css.form}>
-        <label className={css.label} htmlFor={idName}>Name</label>
+        <label className={css.label} htmlFor={idName}>
+          Name
+        </label>
         <input
           id={idName}
           type="text"
@@ -41,7 +41,9 @@ const ContactForm = ({ onSubmit }) => {
           required
           onChange={handleChange}
         />
-        <label className={css.label} htmlFor={idNumber}>Number</label>
+        <label className={css.label} htmlFor={idNumber}>
+          Number
+        </label>
         <input
           id={idNumber}
           type="number"
