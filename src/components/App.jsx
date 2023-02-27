@@ -10,15 +10,14 @@ const App = () => {
   const contactList = useSelector(state => state.contacts.contacts);
 
   const handleFormSubmit = (name, number) => {
-    const inContact = Boolean(
-      contactList.find(e => e.name.toUpperCase() === name.toUpperCase())
-    );
-    const inNumber = Boolean(contactList.find(e => e.number === number));
-    if (inContact) return alert(`контакт ${name}  існує`);
-    if (inNumber) return alert(`номер ${number}  існує`);
-
+    contactList.foreach(e => {
+      if (e.name.toUpperCase() === name.toUpperCase())
+        return alert(`контакт ${name}  існує`);
+      if (e.number === number) return alert(`номер ${number}  існує`);
+    });
     dispatch(addContact({ name, number }));
   };
+
   return (
     <div className={css.appContainer}>
       <h1 className={css.title}>Phonebook</h1>
