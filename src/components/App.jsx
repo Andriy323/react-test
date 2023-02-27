@@ -13,7 +13,9 @@ const App = () => {
     const inContact = Boolean(
       contactList.find(e => e.name.toUpperCase() === name.toUpperCase())
     );
+    const inNumber = Boolean(contactList.find(e => e.number === number));
     if (inContact) return alert(`контакт ${name}  існує`);
+    if (inNumber) return alert(`номер ${number}  існує`);
 
     dispatch(addContact({ name, number }));
   };
