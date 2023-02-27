@@ -1,18 +1,26 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactSlice';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import css from '../Forms/ContactForm.module.css';
-const ContactForm = ({ onSubmit }) => {
+
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const contact = useSelector(state => state.contacts.contacts);
+
   const idName = nanoid();
   const idNumber = nanoid();
 
   const hendleSubmit = e => {
     e.preventDefault();
+
+    const inContact = Boolean(
+      contact.find(e => e.name.toUpperCase() === name.toUpperCase())
+    );
+    if (inContact) return alert(`контакт ${name}  існує`);
 
     dispatch(addContact({ name, number }));
     setName('');
