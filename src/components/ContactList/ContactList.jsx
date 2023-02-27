@@ -3,9 +3,9 @@ import { removContact } from 'redux/contactSlice';
 import PropTypes from 'prop-types';
 import css from '../ContactList/ContactList.module.css';
 const ContactList = () => {
-  const contact = useSelector(state => state.contacts.contacts);
+  const contactList = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.contacts.filter);
-  const filterContact = contact.filter(contact =>
+  const filterContact = contactList.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
   const dispatch = useDispatch();
