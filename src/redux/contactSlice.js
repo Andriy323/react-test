@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import axios from 'axios';
 import { getContactsApi, deleteContactApi, addContactApi } from 'helpers/fetch';
 
 export const fetchContacts = createAsyncThunk(
