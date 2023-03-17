@@ -5,8 +5,8 @@ import style from './navigation.module.css';
 const Navigation = () => {
   return (
     <nav className={style.navLink}>
-      <NavigationHome />
-      <NavigationAutch />
+        <NavigationHome />
+        <NavigationAutch />
     </nav>
   );
 };
