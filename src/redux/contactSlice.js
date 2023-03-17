@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getContactsApi, deleteContactApi, addContactApi } from 'helpers/fetch';
+import {
+  getContactsApi,
+  deleteContactApi,
+  addContactApi,
+  editContactApi,
+} from 'helpers/fetch';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
@@ -22,6 +27,18 @@ export const deleteContact = createAsyncThunk(
       await deleteContactApi(id);
 
       dispatch(removContact({ id }));
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async function (contact, { dispatch, rejectWithValue }) {
+    try {
+      await editContactApi(contact);
+      dispatch(setEditContact(contact));
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -64,6 +81,14 @@ const contactSlice = createSlice({
     setFilter(state, action) {
       state.filter = action.payload;
     },
+    setEditContact(state, action) {
+      state.contacts.items = state.contacts.items.map(item => {
+        if (item.id === action.payload.id) {
+          return { ...action.payload };
+        }
+        return { ...item };
+      });
+    },
   },
   extraReducers: {
     [fetchContacts.pending]: (state, action) => {
@@ -82,5 +107,6 @@ const contactSlice = createSlice({
   },
 });
 
-export const { addContact, removContact, setFilter } = contactSlice.actions;
+export const { addContact, removContact, setFilter, setEditContact } =
+  contactSlice.actions;
 export default contactSlice.reducer;

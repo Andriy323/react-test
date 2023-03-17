@@ -51,3 +51,7 @@ export const addContactApi = async contact => {
 export const deleteContactApi = async id => {
   await authInstance.delete(`${endpoint}/${id}`);
 };
+
+export const editContactApi = async ({ id, name, number }) => {
+  await authInstance.patch(`${endpoint}/${id}`, { name: name, number: number });
+};

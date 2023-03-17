@@ -1,5 +1,8 @@
 import Navigation from './Navigation/Navigation';
 import UseRoutes from './UseRoutes';
+
+
+
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { currentUser } from '../redux/autchSlice';
@@ -12,11 +15,12 @@ const App = () => {
   useEffect(() => {
     dispatch(currentUser());
   }, [dispatch]);
-
+ 
   return loading ? (
     <h1>Loading...</h1>
   ) : (
     <div className={style.appContainer}>
+      
       <Navigation />
       <UseRoutes />
     </div>

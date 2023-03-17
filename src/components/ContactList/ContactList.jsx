@@ -1,5 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { deleteContact } from 'redux/contactSlice';
+import { useModal } from 'helpers/hoks/useModal';
+import Modal from 'components/Modal/Modal';
 import PropTypes from 'prop-types';
 import css from '../ContactList/ContactList.module.css';
 const ContactList = () => {
@@ -8,25 +11,47 @@ const ContactList = () => {
   const filterContact = contactListItem.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
+  const { modalOpen, openModalState, closeModalState } = useModal();
   const dispatch = useDispatch();
+  const [contact, setContact] = useState({});
+  const openModal = contact => {
+    setContact({ ...contact });
 
+    openModalState();
+    document.body.style.overflow = 'hidden';
+  };
+  const modalClose = () => {
+    closeModalState();
+    document.body.style.overflow = '';
+  };
   return filterContact.length === 0 ? (
     <p>There is no contact list</p>
   ) : (
-    <ul className={css.list}>
-      {filterContact.map(({ name, id, number }) => (
-        <li key={id} className={css.item}>
-          {name}: {number}{' '}
-          <button
-            className={css.btnDelete}
-            onClick={() => dispatch(deleteContact(id))}
-            type="button"
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      {modalOpen && <Modal close={modalClose} contact={contact} />}
+
+      <ul className={css.list}>
+        {filterContact.map(({ name, id, number }) => (
+          <li key={id} className={css.item}>
+            {name}: {number}{' '}
+            <button
+              className={css.btnDelete}
+              onClick={() => openModal({ id, name, number })}
+              type="button"
+            >
+              Edit
+            </button>
+            <button
+              className={css.btnDelete}
+              onClick={() => dispatch(deleteContact(id))}
+              type="button"
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 export default ContactList;
