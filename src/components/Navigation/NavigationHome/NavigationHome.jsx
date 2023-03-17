@@ -9,7 +9,7 @@ const NavigationHome = () => {
   return (
     <>
       <NavLink to="/" className={getClassName}>
-        <img src={imgPhone} alt="Logo phonebooks" width="50" />
+        <img src={imgPhone} className={style.img} alt="Logo phonebooks" width="50" />
       </NavLink>
     </>
   );

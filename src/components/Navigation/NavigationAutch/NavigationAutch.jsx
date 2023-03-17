@@ -20,7 +20,8 @@ const NavigationAutch = () => {
       )}
       {isLoggedIn ? (
         <div className={style.contaonerContacts}>
-          <h1 className={style.titleName}>Hello: {email}</h1>
+          <span className={style.titleName}>Hello: {email}</span>
+          
           <button onClick={() => dispatch(logOutUser())} className={style.btn}>
             Logout
           </button>
