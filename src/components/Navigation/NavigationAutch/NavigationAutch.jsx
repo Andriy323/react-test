@@ -20,7 +20,6 @@ const NavigationAutch = () => {
       )}
       {isLoggedIn ? (
         <div className={style.contaonerContacts}>
-          {' '}
           <h1 className={style.titleName}>Hello: {email}</h1>
           <button onClick={() => dispatch(logOutUser())} className={style.btn}>
             Logout
@@ -31,7 +30,6 @@ const NavigationAutch = () => {
           <NavLink to="/login" className={getClassName}>
             Login
           </NavLink>
-
           <NavLink to="/register" className={getClassName}>
             Register
           </NavLink>

@@ -1,16 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import style from './navigation-home.module.css';
+import imgPhone from "../../../img/phone-book.png"
 const getClassName = ({ isActive }) => {
   const className = isActive ? `${style.link} ${style.active}` : style.link;
   return className;
 };
 const NavigationHome = () => {
   return (
-    <div>
+    <>
       <NavLink to="/" className={getClassName}>
-        Logo
+        <img src={imgPhone} alt="Logo phonebooks" width="50" />
       </NavLink>
-    </div>
+    </>
   );
 };
 
