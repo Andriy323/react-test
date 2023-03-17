@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { singupUser } from 'redux/contactSlice';
 import { singupUser } from 'redux/autchSlice';
 import style from './register-page.module.css';
 const RegisterPage = () => {
@@ -32,7 +31,7 @@ const RegisterPage = () => {
       <form className={style.form} onSubmit={hundleSubmit}>
         <label className={style.label} htmlFor={idName}>
           Name
-        </label>{' '}
+        </label>
         <input
           type="name"
           className={style.input}
@@ -43,7 +42,7 @@ const RegisterPage = () => {
         />
         <label className={style.label} htmlFor={idEmail}>
           Email
-        </label>{' '}
+        </label>
         <input
           type="email"
           className={style.input}
@@ -54,7 +53,7 @@ const RegisterPage = () => {
         />
         <label className={style.label} htmlFor={idPAssword}>
           Password
-        </label>{' '}
+        </label>
         <input
           type="password"
           className={style.input}

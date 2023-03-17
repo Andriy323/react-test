@@ -4,6 +4,8 @@ import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { editContact } from 'redux/contactSlice';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+
 import style from 'components/Modal/modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -78,3 +80,8 @@ const Modal = ({ close, contact }) => {
 };
 
 export default Modal;
+Modal.prototypes = {
+    close: PropTypes.func,
+    contact: PropTypes.object,
+  };
+  
