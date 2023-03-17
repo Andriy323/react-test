@@ -33,8 +33,10 @@ const ContactList = () => {
       <ul className={css.list}>
         {filterContact.map(({ name, id, number }) => (
           <li key={id} className={css.item}>
-            {name}: {number}{' '}
-            <button
+            <span>
+               {name}: {number}
+            </span>
+           <div> <button
               className={css.btnDelete}
               onClick={() => openModal({ id, name, number })}
               type="button"
@@ -47,7 +49,7 @@ const ContactList = () => {
               type="button"
             >
               Delete
-            </button>
+            </button></div>
           </li>
         ))}
       </ul>
