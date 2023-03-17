@@ -1,6 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 
 body {
+  margin: 0;
   background: #6fb98f;
   background: linear-gradient(
     to right,
