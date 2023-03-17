@@ -1,1 +1,0 @@
-export const getAllContact =  JSON.parse(window.localStorage.getItem('contacts')) ?? []

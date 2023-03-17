@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import css from '../Forms/ContactForm.module.css';
 
-
 const ContactForm = ({ onHandleSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

@@ -32,8 +32,7 @@ input:focus {
   /* color: rgb(0, 0, 0); */
   color: aliceblue;
 
-  
-  border-radius: 5px; 
+  border-radius: 5px;
   border: solid 1px #004445;
   /* border: none; */
   cursor: pointer;
@@ -41,7 +40,6 @@ input:focus {
   height: 25px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 .btnAdd:hover {
   background-color: #142c17ab;

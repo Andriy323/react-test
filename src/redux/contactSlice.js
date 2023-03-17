@@ -32,8 +32,7 @@ export const addContacts = createAsyncThunk(
   'contacts/addContacts',
   async function ({ name, number }, { dispatch, rejectWithValue }) {
     try {
-   
-      const data = await addContactApi({name,number});
+      const data = await addContactApi({ name, number });
 
       dispatch(addContact(data));
     } catch (error) {
