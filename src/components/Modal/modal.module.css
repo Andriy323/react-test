@@ -70,6 +70,7 @@ input:focus {
   color: red;
   background-color: aliceblue;
   border: none;
+  cursor: pointer;
 }
 .btnAdd {
   display: block;
