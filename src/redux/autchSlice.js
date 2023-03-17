@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { singup, logIn, logOut, getCurrentUser } from 'helpers/fetch';
 import Notiflix from 'notiflix';
-import 'react-toastify/dist/ReactToastify.css'; // const token = {
+import 'react-toastify/dist/ReactToastify.css';
 
 export const singupUser = createAsyncThunk(
   'users/register',
   async function (dataSingup, { rejectWithValue }) {
     try {
       const data = await singup(dataSingup);
-      // setAuthHeader(data.tpken)
       return data;
     } catch (error) {
       return rejectWithValue(Notiflix.Notify.failure(error.message));
@@ -32,10 +31,7 @@ export const logOutUser = createAsyncThunk(
   'users/logout',
   async function (_, { rejectWithValue }) {
     try {
-      // token.unset()
-
       await logOut();
-      //    clearAuthHeader();
     } catch (error) {
       return rejectWithValue(Notiflix.Notify.failure(error.message));
     }

@@ -37,15 +37,6 @@ const NavigationAutch = () => {
           </NavLink>
         </>
       )}
-      {/* {isLoggedIn && <h1>Heloo test</h1>}  
-      {isLoggedIn && <NavLink to="/login" className={getClassName}>
-        Login
-      </NavLink>
-      |
-      <NavLink to="/register" className={getClassName}>
-        Register
-      </NavLink>}
-       */}
     </div>
   );
 };

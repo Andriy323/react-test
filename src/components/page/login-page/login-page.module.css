@@ -1,3 +1,15 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #477405;
+  background-color: #6fb98f;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
 .form {
     width: 300px;
     display: block;

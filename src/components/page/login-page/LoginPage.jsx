@@ -24,7 +24,7 @@ const LoginPage = () => {
     setPassword('');
   };
   return (
-    <div>
+    <div className={style.container}>
       <h1>Login</h1>
 
       <form className={style.form} onSubmit={hundleSubmit}>
@@ -43,7 +43,7 @@ const LoginPage = () => {
           Password
         </label>{' '}
         <input
-          type="text"
+          type="password"
           className={style.input}
           id={idPAssword}
           name="password"

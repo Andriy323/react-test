@@ -1,6 +1,4 @@
-// import { Navigate, NavLink } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
-// import style from './navigation-home-module.css';
 import style from './navigation-home.module.css';
 const getClassName = ({ isActive }) => {
   const className = isActive ? `${style.link} ${style.active}` : style.link;

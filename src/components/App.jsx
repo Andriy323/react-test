@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { currentUser } from '../redux/autchSlice';
 import { useAuth } from 'redux/select/useAutch';
+import style from './App.module.css'
 const App = () => {
   const dispatch = useDispatch();
   const { loading } = useAuth();
@@ -15,10 +16,10 @@ const App = () => {
   return loading ? (
     <h1>Loading...</h1>
   ) : (
-    <>
+    <div className={style.appContainer}>
       <Navigation />
       <UseRoutes />
-    </>
+    </div>
   );
 };
 
