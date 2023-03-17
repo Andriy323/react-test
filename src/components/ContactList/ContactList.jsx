@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { useState } from 'react';
 import { deleteContact } from 'redux/contactSlice';
 import { useModal } from 'helpers/hoks/useModal';
@@ -41,14 +42,14 @@ const ContactList = () => {
               onClick={() => openModal({ id, name, number })}
               type="button"
             >
-              Edit
+              <FaEdit/>
             </button>
             <button
               className={css.btnDelete}
               onClick={() => dispatch(deleteContact(id))}
               type="button"
             >
-              Delete
+            <FaTrashAlt/> 
             </button></div>
           </li>
         ))}
