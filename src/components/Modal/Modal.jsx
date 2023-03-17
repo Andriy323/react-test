@@ -42,6 +42,7 @@ const Modal = ({ close, contact }) => {
     <div className={style.overlay} onClick={modalClose}>
       <div className={style.modal}>
         <button className={style.btnClose} onClick={modalClose}>X</button>
+        <h1 className={style.title}>Edit contact</h1>
         <form onSubmit={hendleSubmit} className={style.form}>
           <label className={style.label} htmlFor={idName}>
             Name

@@ -53,6 +53,10 @@ input:focus {
   outline-offset: 0;
   border: 2px solid rgb(83, 150, 226);
 }
+
+.title {
+    font-size: 19px;
+   }
 .btnClose {
   display: flex;
   align-items: center;
